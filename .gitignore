@@ -1,0 +1,36 @@
+# Xcode
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+DerivedData/
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods
+Pods/
+
+# Frameworks
+Frameworks/whisper.xcframework/
+
+# Models
+Models/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# AppCode
+.idea/
+
+# Build artifacts
+build/
+*.app

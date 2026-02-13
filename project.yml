@@ -1,0 +1,52 @@
+name: MacShout
+options:
+  bundleIdPrefix: com.macshout
+  deploymentTarget:
+    macOS: "13.3"
+  developmentLanguage: en
+  createIntermediateGroups: true
+
+settings:
+  SWIFT_VERSION: 5.9
+  MACOSX_DEPLOYMENT_TARGET: "13.3"
+  PRODUCT_NAME: MacShout
+  GENERATE_INFOPLIST_FILE: NO
+
+targets:
+  MacShout:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.3"
+    sources:
+      - path: MacShout
+        excludes:
+          - "*.md"
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.macshout.MacShout
+      INFOPLIST_FILE: MacShout/Info.plist
+      CODE_SIGN_ENTITLEMENTS: MacShout/MacShout.entitlements
+      CODE_SIGN_STYLE: Automatic
+      DEVELOPMENT_TEAM: ""
+      ENABLE_HARDENED_RUNTIME: YES
+      COMBINE_HIDPI_IMAGES: YES
+      SWIFT_VERSION: 5.9
+      FRAMEWORK_SEARCH_PATHS: $(inherited) $(PROJECT_DIR)/Frameworks
+      OTHER_LDFLAGS: $(inherited) -framework Accelerate
+    dependencies:
+      - framework: Frameworks/whisper.xcframework
+        embed: true
+      - sdk: AVFoundation.framework
+      - sdk: AppKit.framework
+      - sdk: Carbon.framework
+      - sdk: SwiftUI.framework
+      - sdk: Accelerate.framework
+
+schemes:
+  MacShout:
+    build:
+      targets:
+        MacShout: all
+    run:
+      config: Debug
+    archive:
+      config: Release
