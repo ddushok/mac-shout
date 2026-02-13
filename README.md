@@ -2,7 +2,7 @@
 
 > whisper, but louder
 
-A native macOS menu bar application for local, on-device speech-to-text transcription using [whisper.cpp](https://github.com/ggml-org/whisper.cpp). Perfect for your M4 Pro Mac Mini with 24 GB RAM.
+A native macOS menu bar application for local, on-device speech-to-text transcription using [whisper.cpp](https://github.com/ggml-org/whisper.cpp). Optimized for Apple Silicon Macs with Metal acceleration.
 
 ## Features
 

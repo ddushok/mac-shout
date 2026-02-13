@@ -46,8 +46,9 @@ class TextInserter {
     private func insertViaSimulatedPaste(_ text: String) throws {
         let pasteboard = NSPasteboard.general
         
-        // Save current clipboard contents
-        let previousContents = pasteboard.pasteboardItems
+        // Save current clipboard text (NSPasteboardItem objects become
+        // invalid after clearContents, so we copy the actual string)
+        let previousText = pasteboard.string(forType: .string)
         
         // Write new text to clipboard
         pasteboard.clearContents()
@@ -63,9 +64,9 @@ class TextInserter {
         usleep(50_000) // 50ms
         
         // Restore previous clipboard contents
-        if let items = previousContents {
+        if let previousText = previousText {
             pasteboard.clearContents()
-            pasteboard.writeObjects(items)
+            pasteboard.setString(previousText, forType: .string)
         }
         
         if !success {
